@@ -2,6 +2,9 @@
   "extends": ["tslint:latest", "tslint-config-prettier"],
   "rules": {
     "no-any": true,
-    "no-unsafe-any": true
+    "no-unsafe-any": true,
+    "no-submodule-imports": false,
+    "no-implicit-dependencies": false,
+    "interface-name": false
   }
 }
