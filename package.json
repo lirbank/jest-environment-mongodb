@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    "lint": "tslint --project tsconfig.json 'src/**/*.ts'",
+    "lint:fix": "tslint --project tsconfig.json --fix 'src/**/*.ts'",
+    "prettier": "prettier --list-different \"**/*.{ts,json,md}\"",
+    "prettier:fix": "prettier --write \"**/*.{ts,json,md}\""
+  },
+  "devDependencies": {
+    "prettier": "1.16.4",
+    "tslint": "5.14.0",
+    "tslint-config-prettier": "1.18.0",
+    "typescript": "3.3.4000"
+  }
+}
