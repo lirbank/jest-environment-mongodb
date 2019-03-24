@@ -1,6 +1,20 @@
 {
+  "name": "jest-environment-mongodb",
+  "version": "0.0.1",
+  "description": "MongoDB Jest environment using mongodb-memory-server",
+  "keywords": [
+    "jest",
+    "mongo",
+    "mongodb"
+  ],
+  "author": "Mikael Lirbank <mikael@airlab.io>",
+  "license": "MIT",
+  "repository": "https://github.com/lirbank/jest-environment-mongodb.git",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
+    "build:watch": "tsc --watch",
     "lint": "tslint --project tsconfig.json 'src/**/*.ts'",
     "lint:fix": "tslint --project tsconfig.json --fix 'src/**/*.ts'",
     "prettier": "prettier --list-different \"**/*.{ts,json,md}\"",
@@ -8,8 +22,9 @@
   },
   "devDependencies": {
     "@types/jest": "24.0.11",
+    "@types/lodash": "4.14.123",
     "@types/mongodb": "3.1.22",
-    "mongodb": "3.2.1",
+    "mongodb": "3.2.2",
     "prettier": "1.16.4",
     "tslint": "5.14.0",
     "tslint-config-prettier": "1.18.0",

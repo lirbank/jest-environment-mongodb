@@ -1,4 +1,4 @@
-import { Config } from '@jest/types';
+import { Config as JestConfig } from '@jest/types';
 import NodeEnvironment from 'jest-environment-node';
 import MongoDbMemoryServer from 'mongodb-memory-server';
 import { MongoMemoryServerOptsT } from 'mongodb-memory-server/lib/MongoMemoryServer';
@@ -10,22 +10,25 @@ declare global {
         readonly uri: string;
         readonly dbName: string;
       };
+      mongod: MongoDbMemoryServer;
     }
   }
 }
 
+export type MongoDbEnvironmentConfig = JestConfig.ProjectConfig & {
+  testEnvironmentOptions?:
+    | JestConfig.ProjectConfig['testEnvironmentOptions']
+    | MongoMemoryServerOptsT;
+};
+
 export default class MongoDbEnvironment extends NodeEnvironment {
   private readonly mongod: MongoDbMemoryServer;
 
-  constructor(
-    config: Config.ProjectConfig & {
-      testEnvironmentOptions:
-        | Config.ProjectConfig['testEnvironmentOptions']
-        | MongoMemoryServerOptsT;
-    },
-  ) {
+  constructor(config: MongoDbEnvironmentConfig) {
     super(config);
+
     this.mongod = new MongoDbMemoryServer(config.testEnvironmentOptions);
+    this.global.mongod = this.mongod;
   }
 
   public async setup() {
@@ -35,6 +38,12 @@ export default class MongoDbEnvironment extends NodeEnvironment {
     };
 
     await super.setup();
+  }
+
+  public async teardown() {
+    await this.mongod.stop();
+
+    await super.teardown();
   }
 }
 
