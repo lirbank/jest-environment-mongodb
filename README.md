@@ -54,8 +54,11 @@ The available `testEnvironmentOptions` are the same as the
 `mongodb-memory-server`
 [options](https://www.npmjs.com/package/mongodb-memory-server#available-options).
 
+Example:
+
 ```json
 {
+  "testEnvironment": "jest-environment-mongodb",
   "testEnvironmentOptions": {
     "binary": {
       "version": "3.6.5"
@@ -66,6 +69,9 @@ The available `testEnvironmentOptions` are the same as the
   }
 }
 ```
+
+MongoDB options provided via `testEnvironmentOptions` also applies to docblock
+environments.
 
 ## Globals
 
