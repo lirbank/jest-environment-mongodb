@@ -78,9 +78,9 @@ environments.
 The `jest-environment-mongodb` environment exposes three global variables:
 
 ```
-global.mongodb.uri     // The server connection URI
-global.mongodb.dbName  // The database name
-global.mongod          // The mongod instance from `mongodb-memory-server`
+global.MONGO_URI      // The server connection URI
+global.MONGO_DB_NAME  // The database name
+global.MONGOD         // The mongod instance from `mongodb-memory-server`
 ```
 
 ## Usage
@@ -96,8 +96,8 @@ let client;
 let db;
 
 beforeAll(async () => {
-  client = await MongoClient.connect(global.mongodb.uri);
-  db = await connection.db(global.mongodb.dbName);
+  client = await MongoClient.connect(global.MONGO_URI);
+  db = await connection.db(global.MONGO_DB_NAME);
 });
 
 afterAll(async () => {

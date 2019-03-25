@@ -6,11 +6,9 @@ import { MongoMemoryServerOptsT } from 'mongodb-memory-server/lib/MongoMemorySer
 declare global {
   namespace NodeJS {
     interface Global {
-      mongodb: {
-        readonly uri: string;
-        readonly dbName: string;
-      };
-      mongod: MongoDbMemoryServer;
+      MONGO_URI: string;
+      MONGO_DB_NAME: string;
+      MONGOD: MongoDbMemoryServer;
     }
   }
 }
@@ -28,14 +26,12 @@ export default class MongoDbEnvironment extends NodeEnvironment {
     super(config);
 
     this.mongod = new MongoDbMemoryServer(config.testEnvironmentOptions);
-    this.global.mongod = this.mongod;
+    this.global.MONGOD = this.mongod;
   }
 
   public async setup() {
-    this.global.mongodb = {
-      dbName: await this.mongod.getDbName(),
-      uri: await this.mongod.getConnectionString(),
-    };
+    this.global.MONGO_URI = await this.mongod.getConnectionString();
+    this.global.MONGO_DB_NAME = await this.mongod.getDbName();
 
     await super.setup();
   }
