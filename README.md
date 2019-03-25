@@ -104,6 +104,11 @@ afterAll(async () => {
   await client.close();
 });
 
+beforeEach(async () => {
+  // Reset the database before each test
+  await db.dropDatabase();
+});
+
 it('should aggregate docs from collection', async () => {
   const files = db.collection('files');
 
