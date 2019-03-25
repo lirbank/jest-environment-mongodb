@@ -97,7 +97,7 @@ let db;
 
 beforeAll(async () => {
   client = await MongoClient.connect(global.MONGO_URI);
-  db = await connection.db(global.MONGO_DB_NAME);
+  db = await client.db(global.MONGO_DB_NAME);
 });
 
 afterAll(async () => {
