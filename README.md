@@ -43,7 +43,7 @@ for all tests in that file:
 ```
 
 This overrides any environment set by `testEnvironment` in the Jest
-configuration for the current file.
+configuration.
 
 ## Options
 
