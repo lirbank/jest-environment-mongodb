@@ -229,11 +229,6 @@
   dependencies:
     "@types/jest-diff" "*"
 
-"@types/lodash@4.14.123":
-  version "4.14.123"
-  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.123.tgz#39be5d211478c8dd3bdae98ee75bb7efe4abfe4d"
-  integrity sha512-pQvPkc4Nltyx7G1Ww45OjVqUsJP4UsZm+GWJpigXgkikZqJgRm4c48g027o6tdgubWHwFRF15iFd+Y4Pmqv6+Q==
-
 "@types/mongodb@3.1.22":
   version "3.1.22"
   resolved "https://registry.yarnpkg.com/@types/mongodb/-/mongodb-3.1.22.tgz#66f96c7acbf7135ce6295a8d6c26f1d97388a84b"
@@ -1542,7 +1537,7 @@ mongodb-core@3.2.2:
   optionalDependencies:
     saslprep "^1.0.0"
 
-mongodb-memory-server@^4.2.1:
+mongodb-memory-server@4.2.1:
   version "4.2.1"
   resolved "https://registry.yarnpkg.com/mongodb-memory-server/-/mongodb-memory-server-4.2.1.tgz#214b1313804cb34a091cec83f38b4089f2f267d4"
   integrity sha512-dEKTV07X1xs34CFJYLe6aqzhOCRnArn+tSlfKPNVp1RqJpX9cashFb9Dm+CMaPFmMEZCaEJ9Kz3uC0OmZu2Hrg==
