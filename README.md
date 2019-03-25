@@ -26,7 +26,7 @@ To use `jest-environment-mongodb` as the default test environment, update your
 ```
 
 To set the test environment on a per file or file pattern basis, consider using
-a docblock (next) or configure [Jest
+a docblock (see the next section) or configure [Jest
 projects](https://jestjs.io/docs/en/configuration#projects-array-string-projectconfig).
 
 ## Configuration - docblock
@@ -42,13 +42,13 @@ for all tests in that file:
  */
 ```
 
-This overrides any environment set by `testEnvironment` in the [Jest
-configuration](https://jestjs.io/docs/en/configuration) for the current file.
+This overrides any environment set by `testEnvironment` in the Jest
+configuration for the current file.
 
 ## Options
 
 Configure the MongoDB server by passing options to `testEnvironmentOptions` of
-your [Jest configuration](https://jestjs.io/docs/en/configuration).
+your Jest configuration.
 
 The available `testEnvironmentOptions` are the same as the
 `mongodb-memory-server`
