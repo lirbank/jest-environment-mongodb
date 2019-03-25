@@ -50,9 +50,9 @@ configuration](https://jestjs.io/docs/en/configuration) for the current file.
 Configure the MongoDB server by passing options to `testEnvironmentOptions` of
 your [Jest configuration](https://jestjs.io/docs/en/configuration).
 
-The [available
-options](https://www.npmjs.com/package/mongodb-memory-server#available-options)
-are the same as the options `mongodb-memory-server` takes.
+The available `testEnvironmentOptions` are the same as the
+`mongodb-memory-server`
+[options](https://www.npmjs.com/package/mongodb-memory-server#available-options).
 
 ```json
 {
@@ -65,4 +65,62 @@ are the same as the options `mongodb-memory-server` takes.
     }
   }
 }
+```
+
+## Globals
+
+The `jest-environment-mongodb` environment exposes three global variables:
+
+```
+global.mongodb.uri     // The server connection URI
+global.mongodb.dbName  // The database name
+global.mongod          // The mongod instance from `mongodb-memory-server`
+```
+
+## Usage
+
+```js
+/**
+ * @jest-environment jest-environment-mongodb
+ */
+
+import { MongoClient } from 'mongodb';
+
+let client;
+let db;
+
+beforeAll(async () => {
+  client = await MongoClient.connect(global.mongodb.uri);
+  db = await connection.db(global.mongodb.dbName);
+});
+
+afterAll(async () => {
+  await client.close();
+});
+
+it('should aggregate docs from collection', async () => {
+  const files = db.collection('files');
+
+  await files.insertMany([
+    { type: 'Document' },
+    { type: 'Video' },
+    { type: 'Image' },
+    { type: 'Document' },
+    { type: 'Image' },
+    { type: 'Document' },
+  ]);
+
+  const topFiles = await files
+    .aggregate([
+      { $group: { _id: '$type', count: { $sum: 1 } } },
+      { $sort: { count: -1 } },
+    ])
+    .toArray();
+
+  expect(topFiles).toEqual([
+    { _id: 'Document', count: 3 },
+    { _id: 'Image', count: 2 },
+    { _id: 'Video', count: 1 },
+  ]);
+});
 ```
