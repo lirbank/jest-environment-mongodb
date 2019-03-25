@@ -4,6 +4,7 @@
   "description": "MongoDB Jest environment using mongodb-memory-server",
   "keywords": [
     "jest",
+    "jest-environment",
     "mongo",
     "mongodb",
     "typescript"
