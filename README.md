@@ -1,5 +1,14 @@
 # jest-environment-mongodb
 
+Run [Jest](https://jestjs.io/) integration tests that require a running
+[MongoDB](https://www.mongodb.com/) server
+
+## Types
+
+This package is written in TypeScript, type declarations (and source maps) are
+included with the package so no need to install types separately. It also works
+with regular JavaScript.
+
 ## Installation
 
 NPM
@@ -26,8 +35,8 @@ To use `jest-environment-mongodb` as the default test environment, update your
 ```
 
 To set the test environment on a per file or file pattern basis, consider using
-a docblock (see the next section) or configure [Jest
-projects](https://jestjs.io/docs/en/configuration#projects-array-string-projectconfig).
+a docblock (see the next section) or configure
+[Jest projects](https://jestjs.io/docs/en/configuration#projects-array-string-projectconfig).
 
 ## Configuration - docblock
 
@@ -43,12 +52,12 @@ for all tests in that file:
 ```
 
 This overrides any environment set by `testEnvironment` in the Jest
-configuration.
+configuration file.
 
 ## Options
 
 Configure the MongoDB server by passing options to `testEnvironmentOptions` of
-your Jest configuration.
+your Jest configuration file.
 
 The available `testEnvironmentOptions` are the same as the
 `mongodb-memory-server`
