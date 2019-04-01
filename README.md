@@ -1,5 +1,7 @@
 # jest-environment-mongodb
 
+[![npm version](https://badge.fury.io/js/jest-environment-mongodb.svg)](https://badge.fury.io/js/jest-environment-mongodb)
+
 Run [Jest](https://jestjs.io/) integration tests that require a running
 [MongoDB](https://www.mongodb.com/) server
 
