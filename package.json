@@ -1,6 +1,6 @@
 {
   "name": "jest-environment-mongodb",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "MongoDB Jest environment using mongodb-memory-server",
   "keywords": [
     "jest",
