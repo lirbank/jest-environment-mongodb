@@ -1,0 +1,26 @@
+{
+  "name": "jest-environment-mongodb",
+  "version": "0.0.6",
+  "description": "MongoDB Jest environment using mongodb-memory-server",
+  "keywords": [
+    "jest",
+    "jest-environment",
+    "mongo",
+    "mongodb",
+    "typescript"
+  ],
+  "author": "Mikael Lirbank <mikael@airlab.io>",
+  "license": "MIT",
+  "repository": "https://github.com/lirbank/jest-environment-mongodb.git",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "jest-environment-node": "^24.5.0"
+  },
+  "peerDependencies": {
+    "mongodb-memory-server": "4.x"
+  }
+}

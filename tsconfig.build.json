@@ -1,0 +1,8 @@
+{
+  "files": [],
+  "references": [
+    { "path": "./packages/jest-environment-mongodb" },
+    { "path": "./packages/jest-environment-mongodb-ephemeral" },
+    { "path": "./packages/jest-environment-mongodb-wiredtiger" }
+  ]
+}
