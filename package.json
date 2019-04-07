@@ -1,13 +1,8 @@
 {
-  "name": "jest-environment-mongodb",
-  "description": "MongoDB Jest environment using mongodb-memory-server",
   "private": true,
   "workspaces": [
     "packages/*"
   ],
-  "author": "Mikael Lirbank <mikael@airlab.io>",
-  "license": "MIT",
-  "repository": "https://github.com/lirbank/jest-environment-mongodb.git",
   "scripts": {
     "compile": "rimraf packages/*/dist && tsc --build tsconfig.build.json",
     "compile:watch": "tsc --build tsconfig.build.json --watch",
