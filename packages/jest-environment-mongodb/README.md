@@ -57,6 +57,11 @@ for all tests in that file:
 This overrides any environment set by `testEnvironment` in the Jest
 configuration file.
 
+For docblock usage, these packages may come in handy:
+[jest-environment-mongodb-wiredtiger](https://www.npmjs.com/package/jest-environment-mongodb-wiredtiger)
+and
+[jest-environment-mongodb-ephemeral](https://www.npmjs.com/package/jest-environment-mongodb-ephemeral)
+
 ## Options
 
 Configure the MongoDB server by passing options to `testEnvironmentOptions` of
@@ -147,3 +152,8 @@ it('should aggregate docs from collection', async () => {
   ]);
 });
 ```
+
+## See also
+
+- [jest-environment-mongodb-wiredtiger](https://www.npmjs.com/package/jest-environment-mongodb-wiredtiger)
+- [jest-environment-mongodb-ephemeral](https://www.npmjs.com/package/jest-environment-mongodb-ephemeral)
