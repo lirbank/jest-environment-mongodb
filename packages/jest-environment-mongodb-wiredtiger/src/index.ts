@@ -1,4 +1,6 @@
-import MongoDbEnvironment, { MongoDbEnvironmentConfig } from '.';
+import MongoDbEnvironment, {
+  MongoDbEnvironmentConfig,
+} from 'jest-environment-mongodb';
 
 export default class WiredTigerEnvironment extends MongoDbEnvironment {
   constructor(config: MongoDbEnvironmentConfig) {

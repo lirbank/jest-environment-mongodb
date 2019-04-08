@@ -1,0 +1,30 @@
+{
+  "name": "jest-environment-mongodb",
+  "description": "Jest environment with a running in-memory MongoDB server",
+  "version": "0.0.5",
+  "author": "Mikael Lirbank <mikael@airlab.io>",
+  "license": "MIT",
+  "keywords": [
+    "jest",
+    "jest-environment",
+    "mongo",
+    "mongodb",
+    "typescript"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lirbank/jest-environment-mongodb.git",
+    "directory": "packages/jest-environment-mongodb"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "jest-environment-node": "^24.5.0"
+  },
+  "peerDependencies": {
+    "mongodb-memory-server": "4.x"
+  }
+}

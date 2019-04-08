@@ -1,44 +1,25 @@
 {
-  "name": "jest-environment-mongodb",
-  "version": "0.0.5",
-  "description": "MongoDB Jest environment using mongodb-memory-server",
-  "keywords": [
-    "jest",
-    "jest-environment",
-    "mongo",
-    "mongodb",
-    "typescript"
-  ],
-  "author": "Mikael Lirbank <mikael@airlab.io>",
-  "license": "MIT",
-  "repository": "https://github.com/lirbank/jest-environment-mongodb.git",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "files": [
-    "dist"
+  "private": true,
+  "workspaces": [
+    "packages/*"
   ],
   "scripts": {
-    "build": "tsc",
-    "build:watch": "tsc --watch",
-    "lint": "tslint --project tsconfig.json 'src/**/*.ts'",
-    "lint:fix": "tslint --project tsconfig.json --fix 'src/**/*.ts'",
+    "compile": "rimraf packages/*/dist && rimraf packages/*/tsconfig.tsbuildinfo && tsc --build tsconfig.build.json",
+    "compile:watch": "tsc --build tsconfig.build.json --watch",
+    "lint": "tslint --project tsconfig.base.json 'packages/**/src/**/*.ts'",
+    "lint:fix": "tslint --project tsconfig.base.json --fix 'packages/**/src/**/*.ts'",
     "prettier": "prettier --list-different \"**/*.{ts,json,md}\"",
     "prettier:fix": "prettier --write \"**/*.{ts,json,md}\""
   },
   "devDependencies": {
     "@types/jest": "24.0.11",
     "@types/mongodb": "3.1.22",
-    "mongodb": "3.2.2",
+    "lerna": "3.13.1",
     "mongodb-memory-server": "4.2.1",
     "prettier": "1.16.4",
-    "tslint": "5.14.0",
+    "rimraf": "2.6.3",
+    "tslint": "5.15.0",
     "tslint-config-prettier": "1.18.0",
-    "typescript": "3.3.4000"
-  },
-  "dependencies": {
-    "jest-environment-node": "^24.5.0"
-  },
-  "peerDependencies": {
-    "mongodb-memory-server": "4.x"
+    "typescript": "3.4.2"
   }
 }
