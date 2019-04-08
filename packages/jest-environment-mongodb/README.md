@@ -33,7 +33,7 @@ To use `jest-environment-mongodb` as the default test environment, update your
 
 ```json
 {
-  "testEnvironment": "jest-environment-mongodb"
+  "testEnvironment": "mongodb"
 }
 ```
 
@@ -45,12 +45,12 @@ a docblock (see the next section) or configure
 
 By adding a `@jest-environment`
 [docblock](https://jestjs.io/docs/en/configuration#testenvironment-string) at
-the top of a test file, you can specify `jest-environment-mongodb` to be used
-for all tests in that file:
+the top of a test file, you can specify `mongodb` to be used for all tests in
+that file:
 
 ```js
 /**
- * @jest-environment jest-environment-mongodb
+ * @jest-environment mongodb
  */
 ```
 
@@ -76,7 +76,7 @@ Example:
 
 ```json
 {
-  "testEnvironment": "jest-environment-mongodb",
+  "testEnvironment": "mongodb",
   "testEnvironmentOptions": {
     "binary": {
       "version": "3.6.5"
@@ -105,7 +105,7 @@ global.MONGOD         // The mongod instance from `mongodb-memory-server`
 
 ```js
 /**
- * @jest-environment jest-environment-mongodb
+ * @jest-environment mongodb
  */
 
 import { MongoClient } from 'mongodb';

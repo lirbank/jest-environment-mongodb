@@ -28,12 +28,12 @@ yarn add --dev mongodb-memory-server jest-environment-mongodb-ephemeral
 
 By adding a `@jest-environment`
 [docblock](https://jestjs.io/docs/en/configuration#testenvironment-string) at
-the top of a test file, you can specify `jest-environment-mongodb-ephemeral` to
-be used for all tests in that file:
+the top of a test file, you can specify `mongodb-ephemeral` to be used for all
+tests in that file:
 
 ```js
 /**
- * @jest-environment jest-environment-mongodb-ephemeral
+ * @jest-environment mongodb-ephemeral
  */
 ```
 
