@@ -41,8 +41,8 @@ This overrides any environment set by `testEnvironment` in the Jest
 configuration file.
 
 Additionally, any `instance.storageEngine` option provided by
-`testEnvironmentOptions` will be overridden with `wiredTiger`. All other
-`testEnvironmentOptions` will be in effect.
+`testEnvironmentOptions` will be overridden with `wiredTiger`. All other options
+provided by `testEnvironmentOptions` will be in effect.
 
 ## See also
 

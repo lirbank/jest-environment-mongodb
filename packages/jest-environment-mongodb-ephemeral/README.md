@@ -42,7 +42,7 @@ configuration file.
 
 Additionally, any `instance.storageEngine` option provided by
 `testEnvironmentOptions` will be overridden with `ephemeralForTest`. All other
-`testEnvironmentOptions` will be in effect.
+options provided by `testEnvironmentOptions` will be in effect.
 
 ## See also
 
