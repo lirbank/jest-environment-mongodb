@@ -11,11 +11,8 @@
     "mongodb",
     "typescript"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/lirbank/jest-environment-mongodb.git",
-    "directory": "packages/jest-environment-mongodb"
-  },
+  "repository": "https://github.com/lirbank/jest-environment-mongodb/tree/master/packages/jest-environment-mongodb",
+  "homepage": "https://github.com/lirbank/jest-environment-mongodb/tree/master/packages/jest-environment-mongodb#readme",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [

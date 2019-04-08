@@ -46,5 +46,5 @@ options provided by `testEnvironmentOptions` will be in effect.
 
 ## See also
 
-[jest-environment-mongodb-wiredtiger](https://www.npmjs.com/package/jest-environment-mongodb-wiredtiger)
-[jest-environment-mongodb](https://www.npmjs.com/package/jest-environment-mongodb)
+- [jest-environment-mongodb-wiredtiger](https://www.npmjs.com/package/jest-environment-mongodb-wiredtiger)
+- [jest-environment-mongodb](https://www.npmjs.com/package/jest-environment-mongodb)

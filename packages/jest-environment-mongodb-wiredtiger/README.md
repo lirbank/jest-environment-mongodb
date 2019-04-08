@@ -46,5 +46,5 @@ provided by `testEnvironmentOptions` will be in effect.
 
 ## See also
 
-[jest-environment-mongodb-ephemeral](https://www.npmjs.com/package/jest-environment-mongodb-ephemeral)
-[jest-environment-mongodb](https://www.npmjs.com/package/jest-environment-mongodb)
+- [jest-environment-mongodb-ephemeral](https://www.npmjs.com/package/jest-environment-mongodb-ephemeral)
+- [jest-environment-mongodb](https://www.npmjs.com/package/jest-environment-mongodb)
