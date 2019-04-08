@@ -1,7 +1,7 @@
 {
   "name": "jest-environment-mongodb",
   "description": "Jest environment with a running in-memory MongoDB server",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "author": "Mikael Lirbank <mikael@airlab.io>",
   "license": "MIT",
   "keywords": [
