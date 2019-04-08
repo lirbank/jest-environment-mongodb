@@ -57,11 +57,11 @@ that file:
 This overrides any environment set by `testEnvironment` in the Jest
 configuration file.
 
-For docblock usage
+For docblock usage,
 [jest-environment-mongodb-wiredtiger](https://www.npmjs.com/package/jest-environment-mongodb-wiredtiger)
 and
 [jest-environment-mongodb-ephemeral](https://www.npmjs.com/package/jest-environment-mongodb-ephemeral)
-may come in handy
+may come in handy.
 
 ## Options
 
