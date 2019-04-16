@@ -1,14 +1,14 @@
 import { Config as JestConfig } from '@jest/types';
 import NodeEnvironment from 'jest-environment-node';
-import MongoDbMemoryServer from 'mongodb-memory-server';
-import { MongoMemoryServerOptsT } from 'mongodb-memory-server/lib/MongoMemoryServer';
+import { MongoMemoryServer } from 'mongodb-memory-server';
+import { MongoMemoryServerOptsT } from 'mongodb-memory-server-core/lib/MongoMemoryServer';
 
 declare global {
   namespace NodeJS {
     interface Global {
       MONGO_URI: string;
       MONGO_DB_NAME: string;
-      MONGOD: MongoDbMemoryServer;
+      MONGOD: MongoMemoryServer;
     }
   }
 }
@@ -20,12 +20,12 @@ export type MongoDbEnvironmentConfig = JestConfig.ProjectConfig & {
 };
 
 export default class MongoDbEnvironment extends NodeEnvironment {
-  private readonly mongod: MongoDbMemoryServer;
+  private readonly mongod: MongoMemoryServer;
 
   constructor(config: MongoDbEnvironmentConfig) {
     super(config);
 
-    this.mongod = new MongoDbMemoryServer(config.testEnvironmentOptions);
+    this.mongod = new MongoMemoryServer(config.testEnvironmentOptions);
     this.global.MONGOD = this.mongod;
   }
 

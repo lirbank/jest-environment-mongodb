@@ -13,13 +13,13 @@
   },
   "devDependencies": {
     "@types/jest": "24.0.11",
-    "@types/mongodb": "3.1.22",
-    "lerna": "3.13.1",
-    "mongodb-memory-server": "4.2.1",
-    "prettier": "1.16.4",
+    "@types/mongodb": "3.1.23",
+    "lerna": "3.13.2",
+    "mongodb-memory-server": "5.0.4",
+    "prettier": "1.17.0",
     "rimraf": "2.6.3",
-    "tslint": "5.15.0",
+    "tslint": "5.16.0",
     "tslint-config-prettier": "1.18.0",
-    "typescript": "3.4.2"
+    "typescript": "3.4.3"
   }
 }
