@@ -19,13 +19,26 @@ export type MongoDbEnvironmentConfig = JestConfig.ProjectConfig & {
     | MongoMemoryServerOptsT;
 };
 
+// Use a single shared mongod instance when Jest is launched with the
+// --runInBand flag
+let mongod: MongoMemoryServer | null = null;
+
 export default class MongoDbEnvironment extends NodeEnvironment {
   private readonly mongod: MongoMemoryServer;
 
   constructor(config: MongoDbEnvironmentConfig) {
     super(config);
 
-    this.mongod = new MongoMemoryServer(config.testEnvironmentOptions);
+    if (this.runInBand) {
+      if (!mongod) {
+        mongod = new MongoMemoryServer(config.testEnvironmentOptions);
+      }
+
+      this.mongod = mongod;
+    } else {
+      this.mongod = new MongoMemoryServer(config.testEnvironmentOptions);
+    }
+
     this.global.MONGOD = this.mongod;
   }
 
@@ -37,9 +50,17 @@ export default class MongoDbEnvironment extends NodeEnvironment {
   }
 
   public async teardown() {
-    await this.mongod.stop();
+    if (!this.runInBand) {
+      await this.mongod.stop();
+    }
 
     await super.teardown();
+  }
+
+  private get runInBand(): boolean {
+    // '-i' is an alias for '--runInBand'
+    // https://jestjs.io/docs/en/cli#runinband
+    return process.argv.includes('--runInBand') || process.argv.includes('-i');
   }
 }
 
