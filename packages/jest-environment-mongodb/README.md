@@ -63,7 +63,25 @@ and
 [jest-environment-mongodb-ephemeral](https://www.npmjs.com/package/jest-environment-mongodb-ephemeral)
 may come in handy.
 
-## Options
+## Keeping the MongoDB server alive between test suites
+
+When starting Jest with the `--runInBand` (or the alias `-i`) CLI flag, a single
+MongoDB server will be started and kept alive between test runs. This is useful
+when running Jest in watch mode, as it prevents MongoDB from restarting between
+every code change.
+
+The MongoDB server is also kept alive and shared between test suites.
+
+Just remember to clean up your database between each test and this should give a
+performance boost when developing.
+
+Example:
+
+```sh
+jest --watch --runInBand mytests.test.js
+```
+
+## MongoDB server options
 
 Configure the MongoDB server by passing options to `testEnvironmentOptions` of
 your Jest configuration file.
