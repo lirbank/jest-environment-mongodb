@@ -4,6 +4,7 @@
     "packages/*"
   ],
   "scripts": {
+    "prepublishOnly": "yarn compile",
     "compile": "rimraf packages/*/dist && rimraf packages/*/tsconfig.tsbuildinfo && tsc --build tsconfig.build.json",
     "compile:watch": "tsc --build tsconfig.build.json --watch",
     "lint": "tslint --project tsconfig.base.json 'packages/**/src/**/*.ts'",
