@@ -6,11 +6,19 @@
 Easily run [Jest](https://jestjs.io/) integration tests that require a running
 [MongoDB](https://www.mongodb.com/) server
 
+## Features
+
+- Superfast in watch mode (use `--runInBand` to prevent MongoDB from rebooting
+  between test-runs)
+- Easy to set the storage engine per test file (use docblocks to override the
+  default storage engine on a per file basis)
+- Includes TypeScript type annotations
+
 ## Types
 
 This package is written in TypeScript, type declarations (and source maps) are
 included with the package so no need to install types separately. It also works
-with regular JavaScript.
+great with regular JavaScript.
 
 ## Installation
 
@@ -63,17 +71,32 @@ and
 [jest-environment-mongodb-ephemeral](https://www.npmjs.com/package/jest-environment-mongodb-ephemeral)
 may come in handy.
 
-## Keeping the MongoDB server alive between test suites
+## Default mode
+
+The default behavior of `jest-environment-mongodb` is to run one MongoDB server
+per Jest worker and to set up a new database for each test suite. This means you
+have complete isolation between test suites and parallel test runs (workers).
+While great for running many tests (in for example CI), it is also slow,
+especially if you need to apply indexes to your collections. This becomes
+particularly painful if you use watch mode when developing. However, you can
+change this behavior with `--runInBand`, which will keep a single server running
+between test runs, see the next section.
+
+## TDD mode - keeping the MongoDB server alive between test suites
 
 When starting Jest with the `--runInBand` (or the alias `-i`) CLI flag, a single
 MongoDB server will be started and kept alive between test runs. This is useful
 when running Jest in watch mode, as it prevents MongoDB from restarting between
 every code change.
 
+If you need to apply indexes to your DB before running tests, `--runInBand` will
+give you an extra performance boost since you don't need to recreate the indexes
+for every code-change/test-run.
+
 The MongoDB server is also kept alive and shared between test suites.
 
 Just remember to clean up your database between each test and this should give a
-performance boost when developing.
+nice performance boost when developing.
 
 Example:
 
