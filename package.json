@@ -12,14 +12,14 @@
     "prettier:fix": "prettier --write \"**/*.{ts,json,md}\""
   },
   "devDependencies": {
-    "@types/jest": "24.0.11",
-    "@types/mongodb": "3.1.23",
-    "lerna": "3.13.2",
-    "mongodb-memory-server": "5.0.4",
+    "@types/jest": "24.0.12",
+    "@types/mongodb": "3.1.26",
+    "lerna": "3.13.4",
+    "mongodb-memory-server": "5.1.1",
     "prettier": "1.17.0",
     "rimraf": "2.6.3",
     "tslint": "5.16.0",
     "tslint-config-prettier": "1.18.0",
-    "typescript": "3.4.3"
+    "typescript": "3.4.5"
   }
 }
