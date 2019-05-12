@@ -1,7 +1,7 @@
 {
   "name": "jest-environment-mongodb-wiredtiger",
   "description": "Jest environment with an in-memory MongoDB server running the WiredTiger storage engine",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Mikael Lirbank <mikael@airlab.io>",
   "license": "MIT",
   "keywords": [
@@ -20,7 +20,7 @@
     "dist"
   ],
   "dependencies": {
-    "jest-environment-mongodb": "^1.0.0"
+    "jest-environment-mongodb": "^1.0.1"
   },
   "peerDependencies": {
     "mongodb-memory-server": "4.x || 5.x"
