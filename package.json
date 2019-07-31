@@ -16,7 +16,7 @@
     "@types/jest": "24.0.12",
     "@types/mongodb": "3.1.26",
     "lerna": "3.13.4",
-    "mongodb-memory-server": "5.1.1",
+    "mongodb-memory-server": "5.1.9",
     "prettier": "1.17.0",
     "rimraf": "2.6.3",
     "tslint": "5.16.0",
