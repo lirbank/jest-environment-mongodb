@@ -4,15 +4,16 @@ import { MongoMemoryReplSet, MongoMemoryServer } from 'mongodb-memory-server';
 import { MongoMemoryReplSetOptsT } from 'mongodb-memory-server-core/lib/MongoMemoryReplSet';
 import { MongoMemoryServerOptsT } from 'mongodb-memory-server-core/lib/MongoMemoryServer';
 
-declare global {
-  namespace NodeJS {
-    interface Global {
-      MONGO_URI: string;
-      MONGO_DB_NAME: string;
-      MONGOD: MongoMemoryServer | MongoMemoryReplSet;
-    }
-  }
-}
+// declare global {
+//   namespace NodeJS {
+//     interface Global {
+//       MONGO_URI: string;
+//       MONGO_DB_NAME: string;
+//       MONGOD: MongoMemoryServer;
+//       MONGOD: MongoMemoryServer | MongoMemoryReplSet;
+//     }
+//   }
+// }
 
 type ServerOpts = Partial<MongoMemoryServerOptsT> & { standalone?: true };
 type ReplSetOpts = Partial<MongoMemoryReplSetOptsT> & { standalone: false };
