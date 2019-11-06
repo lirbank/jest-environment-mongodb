@@ -3,15 +3,15 @@ import NodeEnvironment from 'jest-environment-node';
 import { MongoMemoryServer } from 'mongodb-memory-server';
 import { MongoMemoryServerOptsT } from 'mongodb-memory-server-core/lib/MongoMemoryServer';
 
-declare global {
-  namespace NodeJS {
-    interface Global {
-      MONGO_URI: string;
-      MONGO_DB_NAME: string;
-      MONGOD: MongoMemoryServer;
-    }
-  }
-}
+// declare global {
+//   namespace NodeJS {
+//     interface Global {
+//       MONGO_URI: string;
+//       MONGO_DB_NAME: string;
+//       MONGOD: MongoMemoryServer;
+//     }
+//   }
+// }
 
 export type MongoDbEnvironmentConfig = JestConfig.ProjectConfig & {
   testEnvironmentOptions?:
