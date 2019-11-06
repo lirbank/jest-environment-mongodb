@@ -22,6 +22,6 @@
     "jest-environment-node": "^24.5.0"
   },
   "peerDependencies": {
-    "mongodb-memory-server": "4.x || 5.x"
+    "mongodb-memory-server": "4.x || 5.x || 6.x"
   }
 }

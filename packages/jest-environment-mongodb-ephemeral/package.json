@@ -23,6 +23,6 @@
     "jest-environment-mongodb": "^1.0.1"
   },
   "peerDependencies": {
-    "mongodb-memory-server": "4.x || 5.x"
+    "mongodb-memory-server": "4.x || 5.x || 6.x"
   }
 }
