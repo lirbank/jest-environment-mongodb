@@ -1,5 +1,9 @@
 # Changelog
 
+### v1.0.3
+
+- Change call to deprecated `getConnectionString` to be `getUri`
+
 ### v1.0.2
 
 - Update `mongodb-memory-server` peer dependency to allow version 6.x
