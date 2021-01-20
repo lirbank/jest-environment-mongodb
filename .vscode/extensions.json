@@ -1,7 +1,8 @@
 {
   "recommendations": [
+    "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
-    "ms-vscode.vscode-typescript-tslint-plugin",
-    "stkb.rewrap"
+    "stkb.rewrap",
+    "wmaurer.change-case"
   ]
 }

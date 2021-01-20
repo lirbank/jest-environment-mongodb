@@ -42,14 +42,14 @@ export default class MongoDbEnvironment extends NodeEnvironment {
     this.global.MONGOD = this.mongod;
   }
 
-  public async setup() {
+  public async setup(): Promise<void> {
     this.global.MONGO_URI = await this.mongod.getUri();
     this.global.MONGO_DB_NAME = await this.mongod.getDbName();
 
     await super.setup();
   }
 
-  public async teardown() {
+  public async teardown(): Promise<void> {
     if (!this.runInBand) {
       await this.mongod.stop();
     }
