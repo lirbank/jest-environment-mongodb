@@ -1,7 +1,7 @@
 # jest-environment-mongodb-ephemeral
 
 [![npm version](https://badge.fury.io/js/jest-environment-mongodb-ephemeral.svg)](https://badge.fury.io/js/jest-environment-mongodb-ephemeral)
-[![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/)
+[![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
 
 This package provides a wrapper around
 [jest-environment-mongodb](https://www.npmjs.com/package/jest-environment-mongodb)
