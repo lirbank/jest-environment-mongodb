@@ -1,7 +1,7 @@
 {
   "name": "jest-environment-mongodb-ephemeral",
   "description": "Jest environment with an in-memory MongoDB server running the EphemeralForTest storage engine",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "Mikael Lirbank <mikael@airlab.io>",
   "license": "MIT",
   "keywords": [
@@ -20,7 +20,7 @@
     "dist"
   ],
   "dependencies": {
-    "jest-environment-mongodb": "^1.0.2"
+    "jest-environment-mongodb": "^1.0.3"
   },
   "peerDependencies": {
     "mongodb-memory-server": "4.x || 5.x || 6.x"
