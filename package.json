@@ -13,6 +13,7 @@
     "prettier:fix": "prettier . --write"
   },
   "devDependencies": {
+    "@tsconfig/node10": "1.0.7",
     "@types/jest": "26.0.20",
     "@types/mongodb": "3.6.3",
     "lerna": "3.22.1",

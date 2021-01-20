@@ -1,18 +1,10 @@
 {
+  "extends": "@tsconfig/node10/tsconfig.json",
   "compilerOptions": {
-    "target": "es2016",
-    "module": "commonjs",
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
     "composite": true,
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "moduleResolution": "node",
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true
+    "noUncheckedIndexedAccess": true
   }
 }
