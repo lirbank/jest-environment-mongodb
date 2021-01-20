@@ -9,7 +9,7 @@ export default class WiredTigerEnvironment extends MongoDbEnvironment {
       testEnvironmentOptions: {
         ...config.testEnvironmentOptions,
         instance: {
-          ...config.testEnvironmentOptions.instance,
+          ...config.testEnvironmentOptions.instance as Record<string, never>,
           storageEngine: "wiredTiger",
         },
       },
