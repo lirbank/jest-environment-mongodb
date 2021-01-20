@@ -1,5 +1,9 @@
 # Changelog
 
+### v1.0.4
+
+- Fixes broken build in v1.0.3
+
 ### v1.0.3
 
 - Change call to deprecated `getConnectionString` to be `getUri`
