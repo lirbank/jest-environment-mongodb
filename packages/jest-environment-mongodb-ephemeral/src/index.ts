@@ -9,7 +9,7 @@ export default class EphemeralEnvironment extends MongoDbEnvironment {
       testEnvironmentOptions: {
         ...config.testEnvironmentOptions,
         instance: {
-          ...config.testEnvironmentOptions.instance as Record<string, never>,
+          ...(config.testEnvironmentOptions.instance as Record<string, never>),
           storageEngine: "ephemeralForTest",
         },
       },
