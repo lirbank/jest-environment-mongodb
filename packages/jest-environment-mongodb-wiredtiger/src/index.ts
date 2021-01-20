@@ -1,6 +1,6 @@
 import MongoDbEnvironment, {
   MongoDbEnvironmentConfig,
-} from 'jest-environment-mongodb';
+} from "jest-environment-mongodb";
 
 export default class WiredTigerEnvironment extends MongoDbEnvironment {
   constructor(config: MongoDbEnvironmentConfig) {
@@ -10,7 +10,7 @@ export default class WiredTigerEnvironment extends MongoDbEnvironment {
         ...config.testEnvironmentOptions,
         instance: {
           ...config.testEnvironmentOptions.instance,
-          storageEngine: 'wiredTiger',
+          storageEngine: "wiredTiger",
         },
       },
     });

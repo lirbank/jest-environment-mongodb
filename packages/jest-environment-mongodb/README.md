@@ -149,7 +149,7 @@ global.MONGOD         // The mongod instance from `mongodb-memory-server`
  * @jest-environment mongodb
  */
 
-import { MongoClient } from 'mongodb';
+import { MongoClient } from "mongodb";
 
 let client;
 let db;
@@ -168,29 +168,29 @@ beforeEach(async () => {
   await db.dropDatabase();
 });
 
-it('should aggregate docs from collection', async () => {
-  const files = db.collection('files');
+it("should aggregate docs from collection", async () => {
+  const files = db.collection("files");
 
   await files.insertMany([
-    { type: 'Document' },
-    { type: 'Video' },
-    { type: 'Image' },
-    { type: 'Document' },
-    { type: 'Image' },
-    { type: 'Document' },
+    { type: "Document" },
+    { type: "Video" },
+    { type: "Image" },
+    { type: "Document" },
+    { type: "Image" },
+    { type: "Document" },
   ]);
 
   const topFiles = await files
     .aggregate([
-      { $group: { _id: '$type', count: { $sum: 1 } } },
+      { $group: { _id: "$type", count: { $sum: 1 } } },
       { $sort: { count: -1 } },
     ])
     .toArray();
 
   expect(topFiles).toEqual([
-    { _id: 'Document', count: 3 },
-    { _id: 'Image', count: 2 },
-    { _id: 'Video', count: 1 },
+    { _id: "Document", count: 3 },
+    { _id: "Image", count: 2 },
+    { _id: "Video", count: 1 },
   ]);
 });
 ```

@@ -9,15 +9,15 @@
     "compile:watch": "tsc --build tsconfig.build.json --watch",
     "lint": "tslint --project tsconfig.base.json 'packages/**/src/**/*.ts'",
     "lint:fix": "tslint --project tsconfig.base.json --fix 'packages/**/src/**/*.ts'",
-    "prettier": "prettier --list-different \"**/*.{ts,json,md}\"",
-    "prettier:fix": "prettier --write \"**/*.{ts,json,md}\""
+    "prettier": "prettier . --check",
+    "prettier:fix": "prettier . --write"
   },
   "devDependencies": {
     "@types/jest": "24.0.22",
     "@types/mongodb": "3.3.8",
     "lerna": "3.18.3",
     "mongodb-memory-server": "6.0.1",
-    "prettier": "1.18.2",
+    "prettier": "2.2.1",
     "rimraf": "3.0.0",
     "tslint": "5.20.1",
     "tslint-config-prettier": "1.18.0",

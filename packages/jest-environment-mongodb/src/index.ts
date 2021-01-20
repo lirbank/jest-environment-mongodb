@@ -1,7 +1,7 @@
-import { Config as JestConfig } from '@jest/types';
-import NodeEnvironment from 'jest-environment-node';
-import { MongoMemoryServer } from 'mongodb-memory-server';
-import { MongoMemoryServerOptsT } from 'mongodb-memory-server-core/lib/MongoMemoryServer';
+import { Config as JestConfig } from "@jest/types";
+import NodeEnvironment from "jest-environment-node";
+import { MongoMemoryServer } from "mongodb-memory-server";
+import { MongoMemoryServerOptsT } from "mongodb-memory-server-core/lib/MongoMemoryServer";
 
 // declare global {
 //   namespace NodeJS {
@@ -15,7 +15,7 @@ import { MongoMemoryServerOptsT } from 'mongodb-memory-server-core/lib/MongoMemo
 
 export type MongoDbEnvironmentConfig = JestConfig.ProjectConfig & {
   testEnvironmentOptions?:
-    | JestConfig.ProjectConfig['testEnvironmentOptions']
+    | JestConfig.ProjectConfig["testEnvironmentOptions"]
     | MongoMemoryServerOptsT;
 };
 
@@ -60,7 +60,7 @@ export default class MongoDbEnvironment extends NodeEnvironment {
   private get runInBand(): boolean {
     // '-i' is an alias for '--runInBand'
     // https://jestjs.io/docs/en/cli#runinband
-    return process.argv.includes('--runInBand') || process.argv.includes('-i');
+    return process.argv.includes("--runInBand") || process.argv.includes("-i");
   }
 }
 
