@@ -1,8 +1,13 @@
 # Changelog
 
+### v1.0.5
+
+- Upgrade dependencies
+
 ### v1.0.4
 
 - Fixes broken build in v1.0.3
+- Upgrade dependencies with security patches
 
 ### v1.0.3
 
