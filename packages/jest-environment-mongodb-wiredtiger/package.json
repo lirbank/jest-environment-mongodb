@@ -12,8 +12,8 @@
     "typescript",
     "wiredtiger"
   ],
-  "repository": "https://github.com/lirbank/jest-environment-mongodb/tree/master/packages/jest-environment-mongodb-wiredtiger",
-  "homepage": "https://github.com/lirbank/jest-environment-mongodb/tree/master/packages/jest-environment-mongodb-wiredtiger#readme",
+  "repository": "https://github.com/lirbank/jest-environment-mongodb/tree/main/packages/jest-environment-mongodb-wiredtiger",
+  "homepage": "https://github.com/lirbank/jest-environment-mongodb/tree/main/packages/jest-environment-mongodb-wiredtiger#readme",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
