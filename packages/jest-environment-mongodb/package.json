@@ -18,10 +18,8 @@
   "files": [
     "dist"
   ],
-  "dependencies": {
-    "jest-environment-node": "^26.6.2"
-  },
   "peerDependencies": {
-    "mongodb-memory-server": "4.x || 5.x || 6.x"
+    "mongodb-memory-server": "7.x || 8.x",
+    "jest-environment-node": "*"
   }
 }

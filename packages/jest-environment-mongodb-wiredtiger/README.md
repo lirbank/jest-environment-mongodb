@@ -1,7 +1,6 @@
 # jest-environment-mongodb-wiredtiger
 
 [![npm version](https://badge.fury.io/js/jest-environment-mongodb-wiredtiger.svg)](https://badge.fury.io/js/jest-environment-mongodb-wiredtiger)
-[![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
 
 This package provides a wrapper around
 [jest-environment-mongodb](https://www.npmjs.com/package/jest-environment-mongodb)
