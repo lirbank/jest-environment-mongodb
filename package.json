@@ -13,8 +13,10 @@
     "lint:fix": "eslint . --ext .ts --max-warnings 0 --fix"
   },
   "devDependencies": {
+    "@tsconfig/node16": "^1.0.3",
     "@types/jest": "29.5.0",
     "@types/mongodb": "4.0.7",
+    "@types/node": "^18.15.7",
     "@typescript-eslint/eslint-plugin": "5.56.0",
     "@typescript-eslint/parser": "5.56.0",
     "eslint": "8.36.0",

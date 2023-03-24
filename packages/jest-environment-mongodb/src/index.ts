@@ -1,58 +1,69 @@
-import { Config as JestConfig } from "@jest/types";
+import { randomUUID } from "node:crypto";
+
+import type {
+  EnvironmentContext,
+  JestEnvironmentConfig,
+} from "@jest/environment";
+import type { Config as JestConfig, Global as JestGlobal } from "@jest/types";
 import NodeEnvironment from "jest-environment-node";
 import { MongoMemoryServer } from "mongodb-memory-server";
-import { MongoMemoryServerOptsT } from "mongodb-memory-server-core/lib/MongoMemoryServer";
+import type { MongoMemoryServerOpts } from "mongodb-memory-server-core/lib/MongoMemoryServer";
 
-// declare global {
-//   namespace NodeJS {
-//     interface Global {
-//       MONGO_URI: string;
-//       MONGO_DB_NAME: string;
-//       MONGOD: MongoMemoryServer;
-//     }
-//   }
-// }
-
-export type MongoDbEnvironmentConfig = JestConfig.ProjectConfig & {
+export type MongoDbEnvironmentConfig = JestEnvironmentConfig & {
   testEnvironmentOptions?:
-    | JestConfig.ProjectConfig["testEnvironmentOptions"]
-    | MongoMemoryServerOptsT;
+  | JestConfig.ProjectConfig["testEnvironmentOptions"]
+  | MongoMemoryServerOpts;
 };
 
-// Use a single shared mongod instance when Jest is launched with the
-// --runInBand flag
-let mongod: MongoMemoryServer | null = null;
+type Global = JestGlobal.Global & {
+  __MONGO_URI__?: string;
+  __MONGOD__?: MongoMemoryServer;
+};
 
+let _mongod: MongoMemoryServer | null = null;
+
+// eslint-disable-next-line import/no-unused-modules
 export default class MongoDbEnvironment extends NodeEnvironment {
-  private readonly mongod: MongoMemoryServer;
+  private testEnvironmentOptions: MongoDbEnvironmentConfig["testEnvironmentOptions"];
+  private dbName: string;
 
-  constructor(config: MongoDbEnvironmentConfig) {
-    super(config);
+  override global: Global = this.global;
 
-    if (this.runInBand) {
-      if (!mongod) {
-        mongod = new MongoMemoryServer(config.testEnvironmentOptions);
-      }
+  constructor(config: MongoDbEnvironmentConfig, context: EnvironmentContext) {
+    super(config, context);
 
-      this.mongod = mongod;
-    } else {
-      this.mongod = new MongoMemoryServer(config.testEnvironmentOptions);
-    }
-
-    this.global.MONGOD = this.mongod;
+    this.testEnvironmentOptions = config.testEnvironmentOptions;
+    this.dbName = randomUUID();
   }
 
-  public async setup(): Promise<void> {
-    this.global.MONGO_URI = await this.mongod.getUri();
-    this.global.MONGO_DB_NAME = await this.mongod.getDbName();
+  private async getInstance() {
+    if (this.runInBand) {
+      if (!_mongod) {
+        _mongod = await MongoMemoryServer.create(
+          this.testEnvironmentOptions
+        );
+      }
+      this.global.__MONGOD__ = _mongod;
+    }
+    if (!this.global.__MONGOD__) {
+      console.log("create__");
+      this.global.__MONGOD__ = await MongoMemoryServer.create(
+        this.testEnvironmentOptions
+      );
+    }
+    return this.global.__MONGOD__;
+  }
+
+  public override async setup(): Promise<void> {
+    const instance = await this.getInstance();
+    if (instance.state === "new") await instance.start();
+    this.global.__MONGO_URI__ = instance.getUri(this.dbName);
 
     await super.setup();
   }
 
-  public async teardown(): Promise<void> {
-    if (!this.runInBand) {
-      await this.mongod.stop();
-    }
+  public override async teardown(): Promise<void> {
+    if (this.global.__MONGOD__) await this.global.__MONGOD__.stop();
 
     await super.teardown();
   }
@@ -63,5 +74,3 @@ export default class MongoDbEnvironment extends NodeEnvironment {
     return process.argv.includes("--runInBand") || process.argv.includes("-i");
   }
 }
-
-module.exports = MongoDbEnvironment;
