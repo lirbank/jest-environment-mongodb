@@ -22,16 +22,14 @@ type Global = JestGlobal.Global & {
 
 let _mongod: MongoMemoryServer | null = null;
 
-// eslint-disable-next-line import/no-unused-modules
 export default class MongoDbEnvironment extends NodeEnvironment {
   private testEnvironmentOptions: MongoDbEnvironmentConfig["testEnvironmentOptions"];
   private dbName: string;
-
-  override global: Global = this.global;
+  override global: Global;
 
   constructor(config: MongoDbEnvironmentConfig, context: EnvironmentContext) {
     super(config, context);
-
+    this.global = super.global;
     this.testEnvironmentOptions = config.testEnvironmentOptions;
     this.dbName = randomUUID();
   }
