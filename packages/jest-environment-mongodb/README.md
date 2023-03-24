@@ -108,9 +108,7 @@ jest --watch --runInBand mytests.test.js
 Configure the MongoDB server by passing options to `testEnvironmentOptions` of
 your Jest configuration file.
 
-The available `testEnvironmentOptions` are the same as the
-`mongodb-memory-server`
-[options](https://www.npmjs.com/package/mongodb-memory-server#available-options).
+The available `testEnvironmentOptions` are the same as for [`mongodb-memory-server`](https://www.npmjs.com/package/mongodb-memory-server)`.
 
 Example:
 
@@ -133,12 +131,11 @@ environments.
 
 ## Globals
 
-The `jest-environment-mongodb` environment exposes three global variables:
+The `jest-environment-mongodb` environment exposes two global variables:
 
 ```
-global.MONGO_URI      // The server connection URI
-global.MONGO_DB_NAME  // The database name
-global.MONGOD         // The mongod instance from `mongodb-memory-server`
+global.__MONGO_URI__  // The server connection URI with a random db name
+global.__MONGOD__     // The mongod instance from `mongodb-memory-server`
 ```
 
 ## Usage
@@ -151,11 +148,9 @@ global.MONGOD         // The mongod instance from `mongodb-memory-server`
 import { MongoClient } from "mongodb";
 
 let client;
-let db;
 
 beforeAll(async () => {
   client = await MongoClient.connect(global.MONGO_URI);
-  db = await client.db(global.MONGO_DB_NAME);
 });
 
 afterAll(async () => {
@@ -164,7 +159,7 @@ afterAll(async () => {
 
 beforeEach(async () => {
   // Reset the database before each test
-  await db.dropDatabase();
+  await client.db().dropDatabase();
 });
 
 it("should aggregate docs from collection", async () => {
