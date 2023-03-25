@@ -13,16 +13,17 @@
     "lint:fix": "eslint . --ext .ts --max-warnings 0 --fix"
   },
   "devDependencies": {
-    "@tsconfig/node12": "1.0.9",
-    "@types/jest": "27.4.0",
+    "@tsconfig/node16": "^1.0.3",
+    "@types/jest": "29.5.0",
     "@types/mongodb": "4.0.7",
-    "@typescript-eslint/eslint-plugin": "5.10.1",
-    "@typescript-eslint/parser": "5.10.1",
-    "eslint": "8.7.0",
-    "lerna": "3.22.1",
-    "mongodb-memory-server": "6.9.3",
-    "prettier": "2.5.1",
-    "rimraf": "3.0.2",
-    "typescript": "4.5.5"
+    "@types/node": "^18.15.7",
+    "@typescript-eslint/eslint-plugin": "5.56.0",
+    "@typescript-eslint/parser": "5.56.0",
+    "eslint": "8.36.0",
+    "jest-environment-node": "^29.5.0",
+    "mongodb-memory-server": "8.12.1",
+    "prettier": "2.8.7",
+    "rimraf": "4.4.1",
+    "typescript": "5.0.2"
   }
 }

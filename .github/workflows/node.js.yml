@@ -15,9 +15,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x, 14.x, 16.x, 17.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
+        node-version: [16.x, 17.x, 18.x]
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
@@ -27,4 +25,5 @@ jobs:
       - run: yarn install --frozen-lockfile
       - run: yarn lint
       - run: yarn prettier
+      - run: yarn test
       - run: yarn compile

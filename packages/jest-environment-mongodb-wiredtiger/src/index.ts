@@ -1,20 +1,18 @@
-import MongoDbEnvironment, {
-  MongoDbEnvironmentConfig,
-} from "jest-environment-mongodb";
+import MongoDbEnvironment, { MongoDbEnvironmentConfig } from "jest-environment-mongodb";
+import type { EnvironmentContext } from "@jest/environment";
 
 export default class WiredTigerEnvironment extends MongoDbEnvironment {
-  constructor(config: MongoDbEnvironmentConfig) {
-    super({
+  constructor(config: MongoDbEnvironmentConfig, context: EnvironmentContext) {
+    config = {
       ...config,
       testEnvironmentOptions: {
         ...config.testEnvironmentOptions,
         instance: {
-          ...(config.testEnvironmentOptions.instance as Record<string, never>),
-          storageEngine: "wiredTiger",
-        },
-      },
-    });
+          ...config.testEnvironmentOptions?.instance ?? {},
+          storageEngine: "wiredTiger"
+        }
+      }
+    }
+    super(config, context);
   }
 }
-
-module.exports = WiredTigerEnvironment;
